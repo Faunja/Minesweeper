@@ -24,9 +24,10 @@ def event_handler():
 			if event.button == 3:
 				displayField = Field.displayField
 				flagPosition = Field.searchPositions[round(len(Field.searchPositions) / 2)]
-				if not displayField[flagPosition[1]][flagPosition[0]] and Field.flagAmount != 0:
-					displayField[flagPosition[1]][flagPosition[0]] = 2
-					Field.flagAmount -= 1
+				if not displayField[flagPosition[1]][flagPosition[0]]:
+					if Field.flagAmount != 0:
+						displayField[flagPosition[1]][flagPosition[0]] = 2
+						Field.flagAmount -= 1
 				elif displayField[flagPosition[1]][flagPosition[0]] != 1:
 					displayField[flagPosition[1]][flagPosition[0]] = 0
 					Field.flagAmount += 1
